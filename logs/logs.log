@@ -1,0 +1,24 @@
+2024-02-27 03:15:01.864 | INFO     | __main__:send_welcome:57 - User-507500572 opened the chat
+2024-02-27 03:51:55.783 | INFO     | __main__:send_welcome:57 - User-507500572 opened the chat
+2024-02-27 04:05:52.926 | INFO     | __main__:comment_5:629 - Trying to save user data to the google sheets...
+2024-02-27 04:05:53.740 | WARNING  | google_sheets:check_token_expicicy_and_refresh:128 - Token has expired. Attempt: 0 to refresh it
+2024-02-27 04:05:54.701 | SUCCESS  | google_sheets:refresh_token:41 - Token has been successfully refreshed.
+2024-02-27 04:05:55.101 | SUCCESS  | google_sheets:check_token_expicicy_and_refresh:131 - Token has been succesfully refreshed
+2024-02-27 04:05:55.516 | INFO     | __main__:save_survey_data_to_google_sheets:637 - Token is valid
+2024-02-27 04:05:58.113 | SUCCESS  | google_sheets:append_values:62 - 36 cells appended.
+2024-02-27 04:05:58.190 | SUCCESS  | save_data_manually:save_user_data_manually:16 - Saved user data manually.
+2024-02-27 04:25:33.049 | INFO     | __main__:send_welcome:57 - User-507500572 opened the chat
+2024-02-27 04:25:59.500 | INFO     | __main__:send_welcome:57 - User-568712931 opened the chat
+2024-02-27 04:32:25.504 | INFO     | __main__:comment_5:629 - Trying to save user data to the google sheets...
+2024-02-27 04:32:25.938 | INFO     | google_sheets:check_token_expicicy_and_refresh:124 - Token's current state: True
+2024-02-27 04:32:25.939 | INFO     | __main__:save_survey_data_to_google_sheets:637 - Token is valid
+2024-02-27 04:32:27.946 | SUCCESS  | google_sheets:append_values:62 - 36 cells appended.
+2024-02-27 04:32:28.048 | SUCCESS  | save_data_manually:save_user_data_manually:16 - Saved user data manually.
+2024-02-27 05:33:26.221 | INFO     | __main__:send_welcome:57 - User-507500572 opened the chat
+2024-02-27 07:06:38.858 | INFO     | __main__:send_welcome:57 - User-507500572 opened the chat
+2024-02-27 07:16:34.404 | INFO     | __main__:comment_5:629 - Trying to save user data to the google sheets...
+2024-02-27 07:16:35.247 | WARNING  | google_sheets:check_token_expicicy_and_refresh:128 - Token has expired. Attempt: 0 to refresh it
+2024-02-27 07:19:01.115 | INFO     | __main__:comment_5:629 - Trying to save user data to the google sheets...
+2024-02-27 07:19:02.009 | WARNING  | google_sheets:check_token_expicicy_and_refresh:128 - Token has expired. Attempt: 0 to refresh it
+2024-02-27 08:03:08.801 | INFO     | __main__:comment_5:629 - Trying to save user data to the google sheets...
+2024-02-27 08:03:09.698 | WARNING  | google_sheets:check_token_expicicy_and_refresh:128 - Token has expired. Attempt: 0 to refresh it
