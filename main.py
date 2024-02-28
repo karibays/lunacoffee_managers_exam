@@ -209,8 +209,9 @@ def question_9(message):
         bot.register_next_step_handler(msg, question_9)
         return  
     
-
-    msg = bot.send_message(message.chat.id, 'Примечания по тех.состоянию помещения')
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
+    markup.add('Нет')
+    msg = bot.send_message(message.chat.id, 'Примечания по тех.состоянию помещения\nЕсли примечания есть, то напишите в формате\nПроблема - дата решения (день.месяц.год)', reply_markup=markup)
 
     bot.register_next_step_handler(msg, comment_1)
 
@@ -321,9 +322,10 @@ def question_15(message):
         msg = bot.send_message(message.chat.id, "Пожалуйста, ответьте Да или Нет")
         bot.register_next_step_handler(msg, question_15)
         return  
-    
 
-    msg = bot.send_message(message.chat.id, 'Примечания по внешнему виду барист')
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
+    markup.add('Нет')
+    msg = bot.send_message(message.chat.id, 'Примечания по внешнему виду барист\nЕсли примечания есть, то напишите в формате\nПроблема - дата решения (день.месяц.год)', reply_markup=markup)
 
     bot.register_next_step_handler(msg, comment_2)
 
@@ -446,8 +448,9 @@ def question_22(message):
         bot.register_next_step_handler(msg, question_22)
         return  
 
-
-    msg = bot.send_message(message.chat.id, 'Примечания по чистоте зала')
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
+    markup.add('Нет')
+    msg = bot.send_message(message.chat.id, 'Примечания по чистоте зала\nЕсли примечания есть, то напишите в формате\nПроблема - дата решения (день.месяц.год)', reply_markup=markup)
 
     bot.register_next_step_handler(msg, comment_3)
 
@@ -521,9 +524,10 @@ def question_26(message):
         msg = bot.send_message(message.chat.id, "Пожалуйста, ответьте Да или Нет")
         bot.register_next_step_handler(msg, question_26)
         return  
-    
 
-    msg = bot.send_message(message.chat.id, 'Примечания по чистоте уборной')
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
+    markup.add('Нет')
+    msg = bot.send_message(message.chat.id, 'Примечания по чистоте уборной\nЕсли примечания есть, то напишите в формате\nПроблема - дата решения (день.месяц.год)', reply_markup=markup)
 
     bot.register_next_step_handler(msg, comment_4)
 
@@ -612,8 +616,10 @@ def finish_survey(message):
         msg = bot.send_message(message.chat.id, "Пожалуйста, ответьте Да или Нет")
         bot.register_next_step_handler(msg, finish_survey)
         return  
-    
-    msg = bot.send_message(message.chat.id, 'Примечания по бару')
+
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
+    markup.add('Нет')
+    msg = bot.send_message(message.chat.id, 'Примечания по бару\nЕсли примечания есть, то напишите в формате\nПроблема - дата решения (день.месяц.год)', reply_markup=markup)
 
     bot.register_next_step_handler(msg, comment_5)
 
@@ -650,6 +656,110 @@ def save_survey_data_to_google_sheets(chat_id):
         logger.error("Failed to save the data to google sheets!")
 
     Saver().save_user_data_manually(values)
+    notify_telegram_group(user_data[chat_id])
+
+
+def notify_telegram_group(user_data):
+    MSG_TYPE = 'sendMessage'
+    CHAT_ID = -4182366162
+
+    keys1 = [
+    '1. Тех.состояние помещения',
+    'Вывеска в норме',
+    'Освещение зала в норме',
+    'Камеры работают',
+    'Музыка играет',
+    'Состояние помещения'
+    ]
+
+    keys2 = [
+        '2. Внешний вид',
+        'Футболка баристы в норме',
+        'Кепка надета',
+        'Бейдж надет',
+        'Фартук надет',
+        'Волосы баристы чистые',
+        'Ногти баристы подстрижены'
+    ]
+
+    keys3 = [
+        '3. Чистота зала',
+        'Диванчики чистые',
+        'Ножки столов чистые',
+        'Столы протёрты',
+        'Полы чистые',
+        'Зеркала чистые',
+        'Окна чистые',
+        'Входная часть чистая'
+    ]
+
+    keys4 = [
+        '4. Чистота уборной',
+        'Унитаз чистый',
+        'Раковина чистая',
+        'Мусор выброшен',
+        'Расходники в наличии'
+    ]
+
+    keys5 = [
+        '5. Бар',
+        'Бар чистый',
+        'Витрина чистая',
+        'На всех позициях есть ценники',
+        'Есть ли позиции на стоп листе',
+        'Ротация продукции'
+    ]
+
+    value1 = value2 = value3 = value4 = value5 = ''
+
+    selected = [k for k in user_data if user_data[k] == 'Нет']
+    for i in selected:
+        if i in keys1:
+            value1 = value1 + i + ': ' + user_data[i] + '\n'
+
+        if i in keys2:
+            value2 = value2 + i + ': ' + user_data[i] + '\n'
+
+        if i in keys3:
+            value3 = value3 + i + ': ' + user_data[i] + '\n'
+
+        if i in keys4:
+            value4 = value4 + i + ': ' + user_data[i] + '\n'
+
+        if i in keys5:
+            value5 = value5 + i + ': ' + user_data[i] + '\n'
+
+
+    # Initialize the text
+    text = f"Дата: {user_data.get('Дата', '')}\n" \
+        f"Точка: {user_data.get('Точка', '')}\n" \
+        f"Менеджер: {user_data.get('Менеджер', '')}\n" \
+        f"Бариста: {user_data.get('Бариста', '')}\n\n"
+
+    # Define the data including section notes and comments
+    data = [
+        (value1, keys1, "1. Техническое состояние помещения", user_data.get("Примечания по тех.состоянию помещения", "")),
+        (value2, keys2, "2. Внешний вид", user_data.get("Примечания по внешнему виду барист", "")),
+        (value3, keys3, "3. Чистота зала", user_data.get("Примечания по чистоте зала", "")),
+        (value4, keys4, "4. Чистота уборной", user_data.get("Примечания по чистоте уборной", "")),
+        (value5, keys5, "5. Бар", user_data.get("Примечания по бару", ""))
+    ]
+
+    # Iterate through data to construct text
+    for value, keys, section_note, comments in data:
+        if value:
+            text += f"{section_note}\n{value}"
+            if comments:  # Append comments if available
+                text += f"Примечания: {comments}\n\n"
+
+    msg = f'https://api.telegram.org/bot{TOKEN}/{MSG_TYPE}?chat_id={CHAT_ID}&text={text}&parse_mode=Markdown'
+
+    try:
+        telegram_msg = requests.get(msg)
+        logger.info("The admins have been notified.")
+    except Exception as e:
+        logger.error(f"Failed to notify the admins: {e}")
+
 
 # --------------------START--------------------
 import os, sys
