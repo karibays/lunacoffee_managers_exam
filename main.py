@@ -89,7 +89,7 @@ def question_1(message):
 def question_2(message):
     text = message.text
     if text in ['Мәңгілік Ел 37', 'Мәңгілік Ел 40', 'Мухамедханов', 'Таха Хусейна 2/1', 'Тәуелсіздік 34']:
-        now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        now = (datetime.datetime.now() + datetime.timedelta(hours=5)).strftime('%Y-%m-%d %H:%M:%S')
         user_data[message.chat.id]['Дата'] = now
 
         user_data[message.chat.id]['Точка'] = message.text
