@@ -1,3 +1,30 @@
-2024-03-11 08:56:04.268 | INFO     | __main__:send_welcome:57 - User-463472428 opened the chat
-2024-03-11 08:57:47.342 | INFO     | __main__:comment_5:635 - Trying to save user data to the google sheets...
-2024-03-11 08:57:47.978 | WARNING  | google_sheets:check_token_expicicy_and_refresh:128 - Token has expired. Attempt: 0 to refresh it
+2024-03-14 05:37:24.938 | INFO     | __main__:comment_5:635 - Trying to save user data to the google sheets...
+2024-03-14 05:37:25.663 | WARNING  | google_sheets:check_token_expicicy_and_refresh:128 - Token has expired. Attempt: 0 to refresh it
+2024-03-14 05:37:26.478 | SUCCESS  | google_sheets:refresh_token:41 - Token has been successfully refreshed.
+2024-03-14 05:37:26.801 | SUCCESS  | google_sheets:check_token_expicicy_and_refresh:131 - Token has been succesfully refreshed
+2024-03-14 05:37:27.135 | INFO     | __main__:save_survey_data_to_google_sheets:643 - Token is valid
+2024-03-14 05:37:28.830 | SUCCESS  | google_sheets:append_values:62 - 36 cells appended.
+2024-03-14 05:37:29.256 | SUCCESS  | save_data_manually:save_user_data_manually:16 - Saved user data manually.
+2024-03-14 05:37:29.726 | INFO     | __main__:notify_telegram_group:759 - The admins have been notified.
+2024-03-14 06:41:02.941 | INFO     | __main__:comment_5:635 - Trying to save user data to the google sheets...
+2024-03-14 06:41:03.577 | WARNING  | google_sheets:check_token_expicicy_and_refresh:128 - Token has expired. Attempt: 0 to refresh it
+2024-03-14 06:41:04.346 | SUCCESS  | google_sheets:refresh_token:41 - Token has been successfully refreshed.
+2024-03-14 06:41:04.678 | SUCCESS  | google_sheets:check_token_expicicy_and_refresh:131 - Token has been succesfully refreshed
+2024-03-14 06:41:05.002 | INFO     | __main__:save_survey_data_to_google_sheets:643 - Token is valid
+2024-03-14 06:41:06.640 | SUCCESS  | google_sheets:append_values:62 - 36 cells appended.
+2024-03-14 06:41:06.778 | SUCCESS  | save_data_manually:save_user_data_manually:16 - Saved user data manually.
+2024-03-14 06:41:07.193 | INFO     | __main__:notify_telegram_group:759 - The admins have been notified.
+2024-03-14 07:16:52.433 | INFO     | __main__:comment_5:635 - Trying to save user data to the google sheets...
+2024-03-14 07:16:52.898 | INFO     | google_sheets:check_token_expicicy_and_refresh:124 - Token's current state: True
+2024-03-14 07:16:52.899 | INFO     | __main__:save_survey_data_to_google_sheets:643 - Token is valid
+2024-03-14 07:16:54.531 | SUCCESS  | google_sheets:append_values:62 - 36 cells appended.
+2024-03-14 07:16:54.647 | SUCCESS  | save_data_manually:save_user_data_manually:16 - Saved user data manually.
+2024-03-14 07:16:55.108 | INFO     | __main__:notify_telegram_group:759 - The admins have been notified.
+2024-03-14 07:51:45.358 | INFO     | __main__:comment_5:635 - Trying to save user data to the google sheets...
+2024-03-14 07:51:45.978 | WARNING  | google_sheets:check_token_expicicy_and_refresh:128 - Token has expired. Attempt: 0 to refresh it
+2024-03-14 07:51:46.682 | SUCCESS  | google_sheets:refresh_token:41 - Token has been successfully refreshed.
+2024-03-14 07:51:46.991 | SUCCESS  | google_sheets:check_token_expicicy_and_refresh:131 - Token has been succesfully refreshed
+2024-03-14 07:51:47.294 | INFO     | __main__:save_survey_data_to_google_sheets:643 - Token is valid
+2024-03-14 07:51:48.886 | SUCCESS  | google_sheets:append_values:62 - 36 cells appended.
+2024-03-14 07:51:48.999 | SUCCESS  | save_data_manually:save_user_data_manually:16 - Saved user data manually.
+2024-03-14 07:51:49.500 | INFO     | __main__:notify_telegram_group:759 - The admins have been notified.
