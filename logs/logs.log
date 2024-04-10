@@ -1,16 +1,4 @@
-2024-03-21 06:05:04.069 | INFO     | __main__:comment_5:635 - Trying to save user data to the google sheets...
-2024-03-21 06:05:04.789 | WARNING  | google_sheets:check_token_expicicy_and_refresh:128 - Token has expired. Attempt: 0 to refresh it
-2024-03-21 06:05:05.480 | SUCCESS  | google_sheets:refresh_token:41 - Token has been successfully refreshed.
-2024-03-21 06:05:05.790 | SUCCESS  | google_sheets:check_token_expicicy_and_refresh:131 - Token has been succesfully refreshed
-2024-03-21 06:05:06.107 | INFO     | __main__:save_survey_data_to_google_sheets:643 - Token is valid
-2024-03-21 06:05:07.827 | SUCCESS  | google_sheets:append_values:62 - 36 cells appended.
-2024-03-21 06:05:08.477 | SUCCESS  | save_data_manually:save_user_data_manually:16 - Saved user data manually.
-2024-03-21 06:05:08.889 | INFO     | __main__:notify_telegram_group:759 - The admins have been notified.
-2024-03-21 07:29:06.547 | INFO     | __main__:comment_5:635 - Trying to save user data to the google sheets...
-2024-03-21 07:29:07.195 | WARNING  | google_sheets:check_token_expicicy_and_refresh:128 - Token has expired. Attempt: 0 to refresh it
-2024-03-21 07:29:07.957 | SUCCESS  | google_sheets:refresh_token:41 - Token has been successfully refreshed.
-2024-03-21 07:29:08.283 | SUCCESS  | google_sheets:check_token_expicicy_and_refresh:131 - Token has been succesfully refreshed
-2024-03-21 07:29:08.623 | INFO     | __main__:save_survey_data_to_google_sheets:643 - Token is valid
-2024-03-21 07:29:10.197 | SUCCESS  | google_sheets:append_values:62 - 36 cells appended.
-2024-03-21 07:29:10.390 | SUCCESS  | save_data_manually:save_user_data_manually:16 - Saved user data manually.
-2024-03-21 07:29:10.821 | INFO     | __main__:notify_telegram_group:759 - The admins have been notified.
+2024-04-10 05:28:07.308 | INFO     | __main__:send_welcome:57 - User--4182366162 opened the chat
+2024-04-10 05:28:53.182 | INFO     | __main__:send_welcome:57 - User-465082314 opened the chat
+2024-04-10 05:30:37.792 | INFO     | __main__:comment_5:635 - Trying to save user data to the google sheets...
+2024-04-10 05:30:38.626 | WARNING  | google_sheets:check_token_expicicy_and_refresh:128 - Token has expired. Attempt: 0 to refresh it
