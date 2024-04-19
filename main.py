@@ -633,6 +633,12 @@ def comment_5(message):
 
     # Saving data to google sheets
     logger.info("Trying to save user data to the google sheets...")
+
+    values = [list(user_data[message.chat.id].values())]
+
+    Saver().save_user_data_manually(values)
+    notify_telegram_group(user_data[message.chat.id])
+
     save_survey_data_to_google_sheets(message.chat.id) 
     
 
@@ -655,8 +661,6 @@ def save_survey_data_to_google_sheets(chat_id):
     except:
         logger.error("Failed to save the data to google sheets!")
 
-    Saver().save_user_data_manually(values)
-    notify_telegram_group(user_data[chat_id])
 
 
 def notify_telegram_group(user_data):
