@@ -604,6 +604,38 @@ def question_30(message):
     markup = create_yes_no_markup()
     msg = bot.send_message(message.chat.id, 'Продукция проротирована', reply_markup=markup)
 
+    bot.register_next_step_handler(msg, question_31)
+
+
+@check_restart
+def question_31(message):
+    text = message.text
+    if text in ['Да', 'Нет']:
+        user_data[message.chat.id]['Ротация продукции'] = message.text
+    else:
+        msg = bot.send_message(message.chat.id, "Пожалуйста, ответьте Да или Нет")
+        bot.register_next_step_handler(msg, question_31)
+        return  
+    
+    markup = create_yes_no_markup()
+    msg = bot.send_message(message.chat.id, 'Температура холодильника в норме?', reply_markup=markup)
+
+    bot.register_next_step_handler(msg, question_32)
+
+
+@check_restart
+def question_32(message):
+    text = message.text
+    if text in ['Да', 'Нет']:
+        user_data[message.chat.id]['Температура холодильника'] = message.text
+    else:
+        msg = bot.send_message(message.chat.id, "Пожалуйста, ответьте Да или Нет")
+        bot.register_next_step_handler(msg, question_32)
+        return  
+    
+    markup = create_yes_no_markup()
+    msg = bot.send_message(message.chat.id, 'Температура витрины в норме?', reply_markup=markup)
+
     bot.register_next_step_handler(msg, finish_survey)
 
 
@@ -611,7 +643,7 @@ def question_30(message):
 def finish_survey(message):
     text = message.text
     if text in ['Да', 'Нет']:
-        user_data[message.chat.id]['Ротация продукции'] = message.text
+        user_data[message.chat.id]['Температура витрины'] = message.text
     else:
         msg = bot.send_message(message.chat.id, "Пожалуйста, ответьте Да или Нет")
         bot.register_next_step_handler(msg, finish_survey)
@@ -666,6 +698,7 @@ def save_survey_data_to_google_sheets(chat_id):
 def notify_telegram_group(user_data):
     MSG_TYPE = 'sendMessage'
     CHAT_ID = -4182366162
+    # CHAT_ID = -4130910392
 
     keys1 = [
     '1. Тех.состояние помещения',
@@ -711,12 +744,28 @@ def notify_telegram_group(user_data):
         'Витрина чистая',
         'На всех позициях есть ценники',
         'Есть ли позиции на стоп листе',
-        'Ротация продукции'
+        'Ротация продукции',
+        'Температура холодильника',
+        'Температура витрины'
     ]
 
     value1 = value2 = value3 = value4 = value5 = ''
 
-    selected = [k for k in user_data if user_data[k] == 'Нет']
+    selected = []
+    for k in user_data:
+        if k == 'Есть ли позиции на стоп листе' or k == 'Состояние помещения':
+            if user_data[k] == 'Да':
+                selected.append(k)
+            
+            if user_data[k] == 'Плохо':
+                selected.append(k)
+            continue
+        
+            
+        if user_data[k] == 'Нет':
+            selected.append(k)
+
+    base = ['Примечания по тех.состоянию помещения', 'Примечания по внешнему виду барист', 'Примечания по чистоте зала', 'Примечания по чистоте уборной', 'Примечания по бару']
     for i in selected:
         if i in keys1:
             value1 = value1 + i + ': ' + user_data[i] + '\n'
@@ -755,6 +804,11 @@ def notify_telegram_group(user_data):
             text += f"{section_note}\n{value}"
             if comments:  # Append comments if available
                 text += f"Примечания: {comments}\n\n"
+
+    check_list = [value for value, _, _, _ in data]
+    lens_sum = sum(len(s) for s in check_list)
+    if int(lens_sum) < 1:
+        text += "Нарушений не выявлено!"
 
     msg = f'https://api.telegram.org/bot{TOKEN}/{MSG_TYPE}?chat_id={CHAT_ID}&text={text}&parse_mode=Markdown'
 
