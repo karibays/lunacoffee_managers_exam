@@ -1,12 +1,4 @@
-2024-06-10 07:33:25.430 | INFO     | __main__:comment_5:667 - Trying to save user data to the google sheets...
-2024-06-10 07:33:26.011 | SUCCESS  | save_data_manually:save_user_data_manually:16 - Saved user data manually.
-2024-06-10 07:33:26.487 | INFO     | __main__:notify_telegram_group:817 - The admins have been notified.
-2024-06-10 07:33:27.216 | WARNING  | google_sheets:check_token_expicicy_and_refresh:128 - Token has expired. Attempt: 0 to refresh it
-2024-06-10 08:55:56.547 | INFO     | __main__:comment_5:667 - Trying to save user data to the google sheets...
-2024-06-10 08:55:57.176 | SUCCESS  | save_data_manually:save_user_data_manually:16 - Saved user data manually.
-2024-06-10 08:55:57.598 | INFO     | __main__:notify_telegram_group:817 - The admins have been notified.
-2024-06-10 08:55:58.272 | WARNING  | google_sheets:check_token_expicicy_and_refresh:128 - Token has expired. Attempt: 0 to refresh it
-2024-06-10 09:57:20.544 | INFO     | __main__:comment_5:667 - Trying to save user data to the google sheets...
-2024-06-10 09:57:21.094 | SUCCESS  | save_data_manually:save_user_data_manually:16 - Saved user data manually.
-2024-06-10 09:57:21.494 | INFO     | __main__:notify_telegram_group:817 - The admins have been notified.
-2024-06-10 09:57:22.138 | WARNING  | google_sheets:check_token_expicicy_and_refresh:128 - Token has expired. Attempt: 0 to refresh it
+2024-06-24 07:26:38.279 | INFO     | __main__:comment_5:667 - Trying to save user data to the google sheets...
+2024-06-24 07:26:39.124 | SUCCESS  | save_data_manually:save_user_data_manually:16 - Saved user data manually.
+2024-06-24 07:26:39.599 | INFO     | __main__:notify_telegram_group:817 - The admins have been notified.
+2024-06-24 07:26:45.226 | WARNING  | google_sheets:check_token_expicicy_and_refresh:128 - Token has expired. Attempt: 0 to refresh it
